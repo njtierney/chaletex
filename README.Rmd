@@ -1,0 +1,73 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# chaletex
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: end -->
+
+Trying to compile LaTeX files can be frustrating when you need to stop at every attempted compile and install the missing packages.
+
+The goal of chaletex is to make it easy to extract packages you need to install from LaTeX. 
+
+It is named `chaletex` as we want this to be like walking into a Chalet after a big day - a nice, friendly, cozy place for your TeX problems.
+
+It is entirely possible that this functionality already exists, somewhere, but we could not find it easily. This package was co-written with grep-master [Claire Miller](http://clairemmiller.com/).
+
+## Installation
+
+You can install the released version of chaletex from GitHub with
+
+``` r
+# install.packages("remotes")
+remotes::install_github("njtierney/chaletex")
+```
+
+## Example usage
+
+The primary use it to extract a list of packages out of a .tex file string:
+
+```{r example}
+library(chaletex)
+tex_extract_pkgs(tex_example)
+```
+
+You can also extract only the preamble, the part before `\begin{document}`, if you want to cut down on your string processing:
+
+```{r example-preamble}
+# read in example tex file
+tex_extract_preamble(tex_example) %>%
+  tex_extract_pkgs()
+```
+
+You can also read in a tex file into a string using `read_tex`:
+
+```{r read-tex, eval = FALSE}
+tex_string <- read_tex("path/to/file.tex")
+```
+
+And you can install tex files using `tex_install_pkgs()`, which is a wrapper around the amazing `tinytex::tlmgr_install()` (not run, but example shown).
+
+```{r read-extract-install, eval = FALSE}
+read_tex("path/to/file.tex") %>%
+  tex_extract_preamble() %>%
+  tex_extract_pkgs() %>%
+  tex_install_pkgs()
+```
+
+Please note that the 'chaletex' project is released with a
+[Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.
+
