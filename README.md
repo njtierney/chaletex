@@ -14,17 +14,17 @@ status](https://ci.appveyor.com/api/projects/status/github/njtierney/chaletex?br
 <!-- badges: end -->
 
 Trying to compile LaTeX files can be frustrating when you need to stop
-at every attempted compile and install the missing packages.
-
-The goal of chaletex is to make it easy to extract packages you need to
-install from LaTeX.
+at every attempted compile and install the missing packages.The goal of
+chaletex is to make it easy to extract packages you need to install from
+LaTeX.
 
 It is named `chaletex` as we want this to be like walking into a Chalet
 after a big day - a nice, friendly, cozy place for your TeX problems.
 
 It is entirely possible that this functionality already exists,
-somewhere, but we could not find it easily. This package was co-written
-with grep-master [Claire Miller](http://clairemmiller.com/).
+somewhere, perhaps in [tinytex](https://github.com/yihui/tinytex), but
+we could not find it easily. This package was co-written with
+grep-master [Claire Miller](http://clairemmiller.com/).
 
 ## Installation
 
